@@ -1,4 +1,6 @@
 python-dotenv
 crewai
 langchain
-langchain_google_genai
+langchain-google-genai
+crewai-tools
+litellm
