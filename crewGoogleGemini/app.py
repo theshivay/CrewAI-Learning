@@ -6,12 +6,41 @@ from agents import news_researcher, news_writer
 # Streamlit UI Setup
 st.set_page_config(page_title="AI Blog Generator", layout="wide")
 
+# Custom CSS Styling
+st.markdown(
+    """
+    <style>
+        /* Sidebar Styling */
+        [data-testid="stSidebar"] {
+            background-color: #1e1e1e;
+            color: white;
+            padding: 20px;
+        }
+        
+        /* Blog Output Styling */
+        [data-testid="stMardown"] {
+            max-height: 60vh;
+            overflow-y: auto;
+            padding: 20px;
+            border-radius: 10px;
+            color: black;
+            background-color: white;
+            font-size: 16px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Title
 st.title("📝 AI-Powered Tech Blog Generator")
 
 # Sidebar for Input
 st.sidebar.header("🔍 Enter Blog Topic")
-topic = st.sidebar.text_input("Topic", "AI in Tech")
+topic = st.sidebar.text_input("Topic", placeholder="e.g., AI in Healthcare")
 
 # Button to Start Process
 if st.sidebar.button("Generate Blog"):
@@ -42,7 +71,10 @@ if st.sidebar.button("Generate Blog"):
 
     with col2:
         st.subheader("📜 Generated Blog:")
-        st.text_area("Blog Content", str(result), height=400)
+
+        blog_section = st.container()
+        with blog_section:
+            st.markdown(result, unsafe_allow_html=True)
 
     # Add a download button
     with open(output_filename, "rb") as file:
