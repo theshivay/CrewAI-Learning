@@ -1,6 +1,18 @@
 from crewai import Task
 from tools import serper_tool
 from agents import news_researcher,news_writer
+# from crew import topic
+import re
+from datetime import datetime
+
+def sanitize_filename(topic):
+    """Removes invalid characters and formats the topic for a filename."""
+    topic = topic.lower().strip()
+    topic = re.sub(r'[^\w\s-]', '', topic)  # Remove special characters
+    topic = re.sub(r'\s+', '_', topic)  # Replace spaces with underscores
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_filename = f"./Blog/{topic}_{timestamp}.md"
+    return output_filename
 
 # Research task
 research_task = Task(
@@ -26,5 +38,5 @@ write_task = Task(
   tools=[serper_tool],
   agent=news_writer,
   async_execution=False,
-  output_file='blog-post.md'  # Example of output customization
+  output_file="./Blog/tech-blog.md"  # Example of output customization
 )
