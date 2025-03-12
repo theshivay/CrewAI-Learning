@@ -9,12 +9,19 @@ An intelligent blog generation tool using **CrewAI, LiteLLMs, and Streamlit**. T
 - **Download Feature**: Easily download the generated blog as a markdown file.
 - **Step-by-Step UI**: User-friendly interface built with Streamlit.
 
+## 📷 Screenshots
+### Blog Generation in Progress
+![Generating Blog](./assets/in_progress.png)
+
+### Blog Generation Completed
+![Generated Blog](./assets/generated.png)
+
 ## 📌 Installation
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/AI-Blog-Generator.git
-cd AI-Blog-Generator
+git clone https://github.com/theshivay/CrewAI-Learning.git
+cd CrewAI-Learning
 ```
 
 ### 2️⃣ Create a Virtual Environment & Activate It
@@ -45,16 +52,20 @@ Visit **http://localhost:8501/** in your browser.
 
 ## 🖥️ Project Structure
 ```
-📂 AI-Blog-Generator
-├── 📜 README.md
-├── 📜 requirements.txt
+📂 CrewAI-Learning
+├── 📂 assets 
+│   ├── generated.png
+│   ├── in_progress.png
 ├── 📂 crewGoogleGemini
+│   ├── 📂 Blog          # Stores generated markdown files
 │   ├── crew.py          # Main execution script
 │   ├── agents.py        # Defines AI agents (Researcher & Writer)
 │   ├── tasks.py         # Defines research & writing tasks
 │   ├── tools.py         # Configures external tools like Serper API
 │   ├── app.py           # Streamlit UI implementation
-├── 📂 Blog              # Stores generated markdown files
+├── 📝 LICENSE
+├── 📝 README.md
+├── 📝 requirements.txt
 ```
 
 ## 📝 Example
@@ -74,5 +85,6 @@ After running the app, enter a topic (e.g., `AI in Healthcare`), and the AI will
 ## 💡 Contributing
 Feel free to fork this repository, make improvements, and submit a pull request. Contributions are welcome! 🚀
 
-## 📜 License
+## 🐟 License
 This project is licensed under the **MIT License**.
+
