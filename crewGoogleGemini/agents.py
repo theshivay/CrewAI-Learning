@@ -10,7 +10,7 @@ google_api_key = os.getenv("GEMINI_API_KEY")
 
 from crewai import LLM
 llm = LLM(
-    model="gemini/gemini-1.5-flash",
+    model="gemini/gemini-3-flash-preview",
     verbose=True,
     temperature=0.5,
     google_api_key = google_api_key
